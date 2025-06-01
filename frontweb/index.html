@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NotatWeb - Sikker notat-tjeneste</title>
+    <link rel="stylesheet" href="/notatweb/style.css" />
+    <script src="/notatweb/app.js" defer></script>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32'><rect width='32' height='32' fill='%23dc3545' rx='4'/><rect x='6' y='8' width='20' height='2' fill='white'/><rect x='6' y='12' width='16' height='2' fill='white'/><rect x='6' y='16' width='18' height='2' fill='white'/><rect x='6' y='20' width='14' height='2' fill='white'/><circle cx='24' cy='6' r='2' fill='white'/></svg>"
+      type="image/svg+xml"
+    />
+  </head>
+  <body>
+    <!-- Innlogging/Registrering Container -->
+    <div id="auth-container" class="container">
+      <h1 style="text-align: center">NotatWeb - et sikkert sted for notater</h1>
+      <div class="auth-form">
+        <h2>Logg inn</h2>
+        <form id="login-form">
+          <input
+            type="text"
+            id="login-username"
+            placeholder="Brukernavn"
+            required
+          />
+          <input
+            type="password"
+            id="login-password"
+            placeholder="Passord"
+            required
+          />
+          <button type="submit">Logg inn</button>
+        </form>
+        <p>
+          Ikke registrert? <a href="#" id="show-register">Registrer deg her</a>
+        </p>
+      </div>
+
+      <div class="auth-form" id="register-form-container" style="display: none">
+        <h2>Registrer ny bruker</h2>
+        <form id="register-form">
+          <input
+            type="text"
+            id="register-username"
+            placeholder="Brukernavn"
+            required
+          />
+          <input
+            type="password"
+            id="register-password"
+            placeholder="Passord"
+            required
+          />
+          <button type="submit">Registrer</button>
+        </form>
+        <p>Allerede registrert? <a href="#" id="show-login">Logg inn her</a></p>
+      </div>
+    </div>
+
+    <!-- Hovedapplikasjon Container (skjult i utgangspunktet) -->
+    <div id="app-container" class="container" style="display: none">
+      <header>
+        <h1>NotatWeb</h1>
+        <div class="user-info">
+          <span id="username-display"></span>
+          <button id="change-password-btn">Endre passord</button>
+          <button id="logout-btn">Logg ut</button>
+        </div>
+      </header>
+
+      <!-- Admin Panel (skjult som standard) -->
+      <div id="admin-panel" style="display: none">
+        <h2>Admin Panel</h2>
+        <div id="user-list">
+          <!-- Brukerliste vil bli lagt til her -->
+        </div>
+      </div>
+
+      <!-- Passord endring modal -->
+      <div id="password-modal" class="modal" style="display: none">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Endre passord</h2>
+          <form id="change-password-form">
+            <input
+              type="password"
+              id="old-password"
+              placeholder="Gammelt passord"
+              required
+            />
+            <input
+              type="password"
+              id="new-password"
+              placeholder="Nytt passord"
+              required
+            />
+            <button type="submit">Endre passord</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Admin passord endring modal -->
+      <div id="admin-password-modal" class="modal" style="display: none">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Endre brukerpassord</h2>
+          <p id="admin-password-username"></p>
+          <form id="admin-change-password-form">
+            <input
+              type="password"
+              id="admin-new-password"
+              placeholder="Nytt passord"
+              required
+            />
+            <button type="submit">Endre passord</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Notathåndtering -->
+      <div id="note-management">
+        <div class="note-form">
+          <h2>Nytt notat</h2>
+          <form id="note-form">
+            <input type="text" id="note-title" placeholder="Tittel" required />
+            <textarea
+              id="note-content"
+              placeholder="Notatinnhold"
+              required
+            ></textarea>
+            <button type="submit">Lagre notat</button>
+          </form>
+        </div>
+
+        <div class="notes-list">
+          <h2>Mine notater</h2>
+          <div id="notes-container">
+            <!-- Notater vil bli lagt til her -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

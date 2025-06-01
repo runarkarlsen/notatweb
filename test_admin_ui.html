@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Admin UI</title>
+    <style>
+      /* Copy the relevant CSS rules */
+      body.admin-user #note-management {
+        display: none !important;
+        visibility: hidden !important;
+      }
+
+      body.admin-user .note-form {
+        display: none !important;
+        visibility: hidden !important;
+      }
+
+      body.admin-user .notes-list {
+        display: none !important;
+        visibility: hidden !important;
+      }
+
+      #admin-panel {
+        background: #f0f0f0;
+        padding: 20px;
+        margin: 20px 0;
+        border: 2px solid #ccc;
+      }
+
+      #note-management {
+        background: #e0e0e0;
+        padding: 20px;
+        margin: 20px 0;
+        border: 2px solid #999;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Test Admin UI</h1>
+
+    <button onclick="toggleAdmin()">Toggle Admin Mode</button>
+
+    <div id="admin-panel" style="display: none">
+      <h2>Admin Panel</h2>
+      <p>This should be visible for admin users</p>
+    </div>
+
+    <div id="note-management">
+      <div class="note-form">
+        <h2>Nytt notat</h2>
+        <form>
+          <input type="text" placeholder="Tittel" />
+          <textarea placeholder="Notatinnhold"></textarea>
+          <button type="button">Lagre notat</button>
+        </form>
+      </div>
+
+      <div class="notes-list">
+        <h2>Mine notater</h2>
+        <div>
+          <p>This note section should be hidden for admin users</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let isAdmin = false;
+
+      function toggleAdmin() {
+        isAdmin = !isAdmin;
+
+        if (isAdmin) {
+          document.body.classList.add("admin-user");
+          document.getElementById("admin-panel").style.display = "block";
+          document.getElementById("note-management").style.display = "none";
+          console.log("Admin mode ON - notes should be hidden");
+        } else {
+          document.body.classList.remove("admin-user");
+          document.getElementById("admin-panel").style.display = "none";
+          document.getElementById("note-management").style.display = "block";
+          console.log("Admin mode OFF - notes should be visible");
+        }
+      }
+    </script>
+  </body>
+</html>
