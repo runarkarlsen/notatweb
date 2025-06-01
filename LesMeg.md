@@ -27,6 +27,18 @@ For å administrere:
 U: admin
 P: admin123
 
+
+Nettsiden bruker et selvsignert sertifikat så nettleseren stoler ikke på det (altså et SSL-sertifikat som ikke er utstedt av en offentlig klarert sertifikatutsteder)
+Første gangs åpning av en nettside med selvsignert sertifikat;
+
+1. Du får en advarsel i nettleseren
+   I Chrome står det: "Tilkoblingen din er ikke privat"
+   I Firefox: "Advarsel: Potensiell sikkerhetsrisiko oppdaget"
+
+2. Du må manuelt godkjenne sertifikatet
+   Klikk på "Avansert"
+   Klikk deretter på "Fortsett til [nettside] (usikker)" eller "Godta risikoen og fortsett"
+
 Etterpå:
 `docker-compose down` (stopper og fjerner alle containere, nettverk, og tilknyttede ressurser)
 
