@@ -1,5 +1,20 @@
 \***\*##--RUKSANVISNING--##\*\***
 
+## Hvordan starte stacken
+
+1. Klon repoet:
+   git clone https://github.com/runarkarlsen/notatweb.git
+
+2. Gå til mappen:
+   cd notatweb
+
+3. Start stacken:
+   docker-compose up -d
+
+
+
+Alternativ 2:
+
 Pakk ut zip-fila.
 Start PowerShell, stå i mappen som docker-compose.yml ligger.
 `docker-compose up -d` ( starter containerne i "detached" modus, kjører i bakgrunnen. Bygges på nytt dersom ikke eksisterer fra før)
