@@ -39,6 +39,10 @@ Første gangs åpning av en nettside med selvsignert sertifikat;
    Klikk på "Avansert"
    Klikk deretter på "Fortsett til [nettside] (usikker)" eller "Godta risikoen og fortsett"
 
+
+
+
+
 Etterpå:
 `docker-compose down` (stopper og fjerner alle containere, nettverk, og tilknyttede ressurser)
 
